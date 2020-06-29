@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_billing"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Billing" />
+       <!-- <item
+            android:id="@+id/nav_spot_collection"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Collection" />
+        <item
+            android:id="@+id/nav_spot_disconnection"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Disconnection" />-->
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_download"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Download" />
+            <!--<item
+                android:id="@+id/nav_upload"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Upload" />-->
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings_bluetooth_black_24dp"
+                android:title="Bluetooth Settings" />
+        </menu>
+    </item>
+
+</menu>

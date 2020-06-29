@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Prakruthi</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="billing_rrno">RR Number</string>
+    <string name="billing_spotfolio">Spot Folio</string>
+    <string name="billing_present_reading">Present Reading</string>
+    <string name="billing_generated_sts_success">Bill Already Generated</string>
+    <string name="billing_generated_sts_fail">Bill Not Generated</string>
+    <string name="err_msg_presentreading">Enter Present Reading To Proceed !!!</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="action_clear_device">Clear device</string>
+    <string name="action_connect_device">Connect Device</string>
+    <string name="action_unpair_device">Unpair Device</string>
+</resources>

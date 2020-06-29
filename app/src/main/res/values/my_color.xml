@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="black_overlay">#66000000</color>
+    <color name="black">#000000</color>
+
+
+    <color name="Air_Force_Blue">	#5D8AA8	</color>
+    <color name="Alice_Blue">	#F0F8FF	</color>
+    <color name="Alizarin">	#E32636	</color>
+    <color name="Amaranth">	#E52B50	</color>
+    <color name="Amber">	#FFBF00	</color>
+    <color name="Android_Green">	#A4C639	</color>
+    <color name="Apple_Green">	#8DB600	</color>
+    <color name="Apricot">	#FBCEB1	</color>
+    <color name="Aquamarine">	#7FFFD4	</color>
+    <color name="Army_Green">	#4B5320	</color>
+    <color name="Arsenic">	#3B444B	</color>
+    <color name="Arylide_Yellow">	#E9D66B	</color>
+    <color name="Ash_Grey">	#B2BEB5	</color>
+    <color name="Asparagus">	#87A96B	</color>
+    <color name="Atomic_Tangerine">	#FF9966	</color>
+    <color name="Auburn">	#6D351A	</color>
+    <color name="Azure">	#007FFF	</color>
+    <color name="Baby_Blue">	#89CFF0	</color>
+    <color name="Baby_Blue_Eyes">#A1CAF1</color>
+    <color name="Baby_Pink">	#F4C2C2	</color>
+    <color name="Banana_Yellow">	#FFD12A	</color>
+    <color name="Battleship_Grey">	#848482	</color>
+    <color name="Bazaar">	#98777B	</color>
+    <color name="Beige">	#F5F5DC	</color>
+    <color name="Bistre">	#3D2B1F	</color>
+    <color name="Black">	#000000	</color>
+    <color name="Bleu_De_France">	#318CE7	</color>
+    <color name="Blond">	#FAF0BE	</color>
+    <color name="Blue">	#0000FF	</color>
+    <color name="Blush">	#DE5D83	</color>
+    <color name="Bole">	#79443B	</color>
+    <color name="Boston_University_Red">	#CC0000	</color>
+    <color name="Brass">	#B5A642	</color>
+    <color name="Bright_Green">	#66FF00	</color>
+    <color name="Bright_Lavender">	#BF94E4	</color>
+    <color name="Bright_Maroon">	#C32148	</color>
+    <color name="Bright_Pink">	#FF007F	</color>
+    <color name="Bright_Turquoise">	#08E8DE	</color>
+    <color name="Bright_Ube">	#D19FE8	</color>
+    <color name="British_Racing_Green">	#004225	</color>
+    <color name="Bronze">	#CD7F32	</color>
+    <color name="Brown">	#964B00	</color>
+    <color name="Bubble_Gum">	#FFC1CC	</color>
+    <color name="Bubbles">	#E7FEFF	</color>
+    <color name="Buff">	#F0DC82	</color>
+    <color name="Burgundy">	#800020	</color>
+    <color name="Burlywood">	#DEB887	</color>
+    <color name="Burnt_Orange">	#CC5500	</color>
+    <color name="Burnt_Sienna">	#E97451	</color>
+    <color name="Burnt_Umber">	#8A3324	</color>
+    <color name="Byzantine">	#BD33A4	</color>
+    <color name="Byzantium">	#702963	</color>
+    <color name="Cadet">	#536878	</color>
+    <color name="Cadmium_Green">	#006B3C	</color>
+    <color name="Cadmium_Orange">	#ED872D	</color>
+    <color name="Cadmium_Red">	#E30022	</color>
+    <color name="Cambridge_Blue">	#A3C1AD	</color>
+    <color name="Camouflage_Green">	#78866B	</color>
+    <color name="Canary_Yellow">	#FFEF00	</color>
+    <color name="Candy_Apple_Red">	#FF0800	</color>
+    <color name="Cardinal">	#C41E3A	</color>
+    <color name="Caribbean_Green">	#00CC99	</color>
+    <color name="Carmine">	#960018	</color>
+    <color name="Carolina_Blue">	#99BADD	</color>
+    <color name="Carrot_Orange">	#ED9121	</color>
+    <color name="Ceil">	#92A1CF	</color>
+    <color name="Celadon">	#ACE1AF	</color>
+    <color name="Cerulean_Blue">	#2A52BE	</color>
+    <color name="Chamoisee">	#A0785A	</color>
+    <color name="Champagne">	#F7E7CE	</color>
+    <color name="Charcoal">	#36454F	</color>
+    <color name="Chartreuse">	#DFFF00	</color>
+    <color name="Cherry">	#DE3163	</color>
+    <color name="Cherry_Blossom_Pink">	#FFB7C5	</color>
+    <color name="Chestnut">	#CD5C5C	</color>
+    <color name="Chocolate">	#7B3F00	</color>
+    <color name="Chrome_Yellow">	#FFA700	</color>
+    <color name="Cinereous">	#98817B	</color>
+    <color name="Cinnabar">	#E34234	</color>
+    <color name="Cinnamon">	#D2691E	</color>
+    <color name="Citrine">	#E4D00A	</color>
+    <color name="Classic_Rose">	#FBCCE7	</color>
+    <color name="Clover">	#00FF6F	</color>
+    <color name="Cobalt">	#0047AB	</color>
+    <color name="Columbia_Blue">	#9BDDFF	</color>
+    <color name="Cool_Black">	#002E63	</color>
+    <color name="Cool_Grey">	#8C92AC	</color>
+    <color name="Copper">	#B87333	</color>
+    <color name="Coquelicot">	#FF3800	</color>
+    <color name="Coral">	#FF7F50	</color>
+    <color name="Cordovan">	#893F45	</color>
+    <color name="Corn">	#FBEC5D	</color>
+    <color name="Cornell_Red">	#B31B1B	</color>
+    <color name="Cornflower_Blue">	#6495ED	</color>
+    <color name="Cornsilk">	#FFF8DC	</color>
+    <color name="Cream">	#FFFDD0	</color>
+    <color name="Crimson">	#DC143C	</color>
+    <color name="Cyan">	#00FFFF	</color>
+    <color name="Daffodil">	#FFFF31	</color>
+    <color name="Dandelion">	#F0E130	</color>
+    <color name="Dark_Blue">	#00008B	</color>
+    <color name="Dark_Brown">	#654321	</color>
+    <color name="Dark_Byzantium">	#5D3954	</color>
+    <color name="Dark_Candy_Apple_Red">	#A40000	</color>
+    <color name="Dark_Cerulean">	#08457E	</color>
+    <color name="Dark_Chestnut">	#986960	</color>
+    <color name="Dark_Coral">	#CD5B45	</color>
+    <color name="Dark_Cyan">	#008B8B	</color>
+    <color name="Dark_Goldenrod">	#B8860B	</color>
+    <color name="Dark_Green">	#013220	</color>
+    <color name="Dark_Jungle_Green">	#1A2421	</color>
+    <color name="Dark_Khaki">	#BDB76B	</color>
+    <color name="Dark_Lava">	#483C32	</color>
+    <color name="Dark_Lavender">	#734F96	</color>
+    <color name="Dark_Magenta">	#8B008B	</color>
+    <color name="Dark_Midnight_Blue">	#003366	</color>
+    <color name="Dark_Orange">	#FF8C00	</color>
+    <color name="Dark_Pastel_Blue">	#779ECB	</color>
+    <color name="Dark_Pastel_Green">	#03C03C	</color>
+    <color name="Dark_Pastel_Purple">	#966FD6	</color>
+    <color name="Dark_Pastel_Red">	#C23B22	</color>
+    <color name="Dark_Pink">	#E75480	</color>
+    <color name="Dark_Powder_Blue">	#003399	</color>
+    <color name="Dark_Raspberry">	#872657	</color>
+    <color name="Dark_Salmon">	#E9967A	</color>
+    <color name="Dark_Scarlet">	#560319	</color>
+    <color name="Dark_Sienna">	#3C1414	</color>
+    <color name="Dark_Slate_Gray">	#2F4F4F	</color>
+    <color name="Dark_Spring_Green">	#177245	</color>
+    <color name="Dark_Tan">	#918151	</color>
+    <color name="Dark_Tangerine">	#FFA812	</color>
+    <color name="Dark_Terra_Cotta">	#CC4E5C	</color>
+    <color name="Dark_Violet">	#9400D3	</color>
+    <color name="Davy_Grey">	#555555	</color>
+    <color name="Denim">	#1560BD	</color>
+    <color name="Desert">	#C19A6B	</color>
+    <color name="Desert_Sand">	#EDC9AF	</color>
+    <color name="Dim_Gray">	#696969	</color>
+    <color name="Dollar_Bill">	#85BB65	</color>
+    <color name="Duke_Blue">	#00009C	</color>
+    <color name="Earth_Yellow">	#E1A95F	</color>
+
+    <color name="Eggplant">	#614051	</color>
+
+    <color name="Emerald">	#50C878	</color>
+
+    <color name="Fawn">	#E5AA70	</color>
+
+    <color name="Ferrari_Red">	#FF1C00	</color>
+
+    <color name="Fire_Engine_Red">	#CE1620	</color>
+
+    <color name="Firebrick">	#B22222	</color>
+
+    <color name="Flame">	#E25822	</color>
+
+    <color name="Flamingo_Pink">	#FC8EAC	</color>
+
+    <color name="Flavescent">	#F7E98E	</color>
+
+    <color name="Forest_Green">	#014421	</color>
+
+    <color name="Gamboge">	#E49B0F	</color>
+
+    <color name="Ghost_White">	#F8F8FF	</color>
+
+    <color name="Glaucous">	#6082B6	</color>
+
+    <color name="Golden_Brown">	#996515	</color>
+
+    <color name="Golden_Yellow">	#FFDF00	</color>
+
+    <color name="Goldenrod">	#DAA520	</color>
+
+    <color name="Gray">	#808080	</color>
+
+    <color name="Green">	#008000	</color>
+
+    <color name="Iceberg">	#71A6D2	</color>
+
+    <color name="Icterine">	#FCF75E	</color>
+
+    <color name="Inchworm">	#B2EC5D	</color>
+
+    <color name="India_Green">	#138808	</color>
+
+    <color name="Indian_Red">	#FF5C5C	</color>
+
+    <color name="Indian_Yellow">	#E3A857	</color>
+
+    <color name="International_Klein_Blue">	#002FA7	</color>
+
+    <color name="Ivory">	#FFFFF0	</color>
+
+    <color name="Jade">	#00A86B	</color>
+
+    <color name="Jasper">	#D73B3E	</color>
+
+    <color name="Khaki">	#C3B091	</color>
+
+    <color name="Lavender">	#B57EDC	</color>
+
+    <color name="Lavender_Blue">	#CCCCFF	</color>
+
+    <color name="Lavender_Blush">	#FFF0F5	</color>
+
+    <color name="Lavender_Gray">	#C4C3D0	</color>
+
+    <color name="Lawn_Green">	#7CFC00	</color>
+
+    <color name="Lemon">	#FFF700	</color>
+
+    <color name="Lime">	#BFFF00	</color>
+
+    <color name="Magenta">	#FF00FF	</color>
+
+    <color name="Mahogany">	#C04000	</color>
+
+    <color name="Maroon">	#800000	</color>
+
+    <color name="Midnight_Blue">	#191970	</color>
+
+    <color name="Mint">	#3EB489	</color>
+
+    <color name="Mustard">	#FFDB58	</color>
+
+    <color name="Navy_Blue">	#000080	</color>
+
+    <color name="Ochre">	#CC7722	</color>
+
+    <color name="Olive">	#808000	</color>
+
+    <color name="Orange">	#FF7F00	</color>
+
+    <color name="Oxford_Blue">	#002147	</color>
+
+    <color name="Pastel_Blue">	#AEC6CF	</color>
+
+    <color name="Pastel_Brown">	#836953	</color>
+
+    <color name="Pastel_Gray">	#CFCFC4	</color>
+
+    <color name="Pastel_Green">	#77DD77	</color>
+
+    <color name="Pastel_Magenta">	#F49AC2	</color>
+
+    <color name="Pastel_Orange">	#FFB347	</color>
+
+    <color name="Pastel_Pink">	#FFD1DC	</color>
+
+    <color name="Pastel_Purple">	#B39EB5	</color>
+
+    <color name="Pastel_Red">	#FF6961	</color>
+
+    <color name="Pastel_Violet">	#CB99C9	</color>
+
+    <color name="Pastel_Yellow">	#FDFD96	</color>
+
+    <color name="Peach">	#FFE5B4	</color>
+
+    <color name="Pear">	#D1E231	</color>
+
+    <color name="Pearl">	#F0EAD6	</color>
+
+    <color name="Peridot">	#E6E200	</color>
+
+    <color name="Pine_Green">	#01796F	</color>
+
+    <color name="Pink">	#FFC0CB	</color>
+
+    <color name="Pistachio">	#93C572	</color>
+
+    <color name="Platinum">	#E5E4E2	</color>
+
+    <color name="Plum">	#8E4585	</color>
+
+    <color name="Portland_Orange">	#FF5A36	</color>
+
+    <color name="Prune">	#701C1C	</color>
+
+    <color name="Pumpkin">	#FF7518	</color>
+
+    <color name="Purple_Heart">	#69359C	</color>
+
+    <color name="Raspberry">	#E30B5D	</color>
+
+    <color name="Raw_Umber">	#826644	</color>
+
+    <color name="Red">	#FF0000	</color>
+
+    <color name="Rifle_Green">	#414833	</color>
+
+    <color name="Rosewood">	#65000B	</color>
+
+    <color name="Royal_Blue">	#002366	</color>
+
+    <color name="Ruby">	#E0115F	</color>
+
+    <color name="Rust">	#B7410E	</color>
+
+    <color name="Safety_Orange">	#FF6700	</color>
+
+    <color name="Saffron">	#F4C430	</color>
+
+    <color name="Salmon">	#FF8C69	</color>
+
+    <color name="Sand">	#C2B280	</color>
+
+    <color name="Sand_Dune">	#967117	</color>
+
+    <color name="Sandstorm">	#ECD540	</color>
+
+    <color name="Sapphire">	#082567	</color>
+
+    <color name="Seal_Brown">	#321414	</color>
+
+    <color name="Seashell">	#FFF5EE	</color>
+
+    <color name="Sepia">	#704214	</color>
+
+    <color name="Shadow">	#8A795D	</color>
+
+    <color name="Silver">	#C0C0C0	</color>
+
+    <color name="Sinopia">	#CB410B	</color>
+
+    <color name="Sky_Blue">	#87CEEB	</color>
+
+    <color name="Sky_Magenta">	#CF71AF	</color>
+
+    <color name="Snow">	#FFFAFA	</color>
+
+    <color name="Spring_Bud">	#A7FC00	</color>
+
+    <color name="Steel_Blue">	#4682B4	</color>
+
+    <color name="Straw">	#E4D96F	</color>
+
+    <color name="Sunset">	#FAD6A5	</color>
+
+    <color name="Tangerine">	#F28500	</color>
+
+    <color name="Teal">	#008080	</color>
+
+    <color name="Terra_Cotta">	#E2725B	</color>
+
+    <color name="Titanium_Yellow">	#EEE600	</color>
+
+    <color name="Tropical_Rain_Forest">	#00755E	</color>
+
+    <color name="Turquoise">	#30D5C8	</color>
+
+    <color name="Ultramarine">	#120A8F	</color>
+
+    <color name="United_Nations_Blue">	#5B92E5	</color>
+
+    <color name="Vanilla">	#F3E5AB	</color>
+
+    <color name="Violet">	#8F00FF	</color>
+
+    <color name="Wheat">	#F5DEB3	</color>
+
+    <color name="White">	#FFFFFF	</color>
+
+    <color name="White_Smoke">	#F5F5F5	</color>
+
+    <color name="Xanadu">	#738678	</color>
+
+    <color name="Yale_Blue">	#0F4D92	</color>
+
+    <color name="Yellow">	#FFFF00	</color>
+
+    <!-- In res/values/colors.xml -->
+    <color name="dark_blue">#180065</color>
+    <color name="light_blue">#334ee9ff</color>
+    <color name="medium_green">#3d853e</color>
+    <color name="light_green">#3c2ae668</color>
+
+
+
+
+</resources>

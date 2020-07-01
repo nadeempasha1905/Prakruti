@@ -7,7 +7,7 @@ android:layout_height="match_parent"
 android:background="@drawable/bg"
 android:orientation="vertical"
 android:scrollbarAlwaysDrawVerticalTrack="true"
-tools:context="com.fcs.billingapp.spotbilling.SignInActivity">
+tools:context="com.prakruthi.billingapp.spotbilling.SignInActivity">
 
 
 

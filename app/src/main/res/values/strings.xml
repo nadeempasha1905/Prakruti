@@ -1,3 +1,4 @@
+
 <resources>
     <string name="app_name">Prakruthi</string>
 
@@ -22,4 +23,5 @@
     <string name="action_clear_device">Clear device</string>
     <string name="action_connect_device">Connect Device</string>
     <string name="action_unpair_device">Unpair Device</string>
+    <string name="account_login">Account Login</string>
 </resources>

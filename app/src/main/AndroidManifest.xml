@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fcs.billingapp.spotbilling">
+    package="com.prakruthi.billingapp.spotbilling">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -57,7 +57,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
-        android:name="com.fcs.billingapp.utility.GlobalClass"
+        android:name="com.prakruthi.billingapp.utility.GlobalClass"
         android:allowBackup="true"
         android:icon="@drawable/bill3"
         android:label="@string/app_name"
@@ -65,7 +65,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.prakruthi.billingapp.spotbilling.MainActivity"
             android:label="@string/title_activity_main"></activity>
         <!--
             <activity
@@ -79,7 +79,7 @@
             </intent-filter>
         </activity>
         -->
-        <activity android:name=".SignInActivity">
+        <activity android:name="com.prakruthi.billingapp.spotbilling.SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -87,20 +87,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomeActivity"
+            android:name="com.prakruthi.billingapp.spotbilling.HomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
         <service
-            android:name="com.fcs.billingapp.listeners.LocationFinder"
+            android:name="com.prakruthi.billingapp.listeners.LocationFinder"
             android:enabled="true" /> <!-- Define your service, make sure to add the permision! -->
         <service
-            android:name="com.fcs.billingapp.jobscheduler.JobSchedulerUpload"
+            android:name="com.prakruthi.billingapp.jobscheduler.JobSchedulerUpload"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <activity
-            android:name=".ResultActivity"
+            android:name="com.prakruthi.billingapp.spotbilling.ResultActivity"
             android:hardwareAccelerated="false" />
     </application>
 

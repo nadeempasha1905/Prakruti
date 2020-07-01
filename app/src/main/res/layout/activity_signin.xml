@@ -59,7 +59,7 @@ tools:context="com.fcs.billingapp.spotbilling.SignInActivity">
                 android:hint="User Name"
                 android:inputType="text"
                 android:singleLine="true"
-                android:text="test" />
+                android:text="test1" />
 
         </android.support.design.widget.TextInputLayout>
 

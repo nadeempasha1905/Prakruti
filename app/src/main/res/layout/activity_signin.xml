@@ -59,7 +59,7 @@ tools:context="com.prakruthi.billingapp.spotbilling.SignInActivity">
                 android:hint="User Name"
                 android:inputType="text"
                 android:singleLine="true"
-                android:text="test1" />
+                android:text="test" />
 
         </android.support.design.widget.TextInputLayout>
 

@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.prakruthi.billingapp.fragments.BillingFragment;
 import com.prakruthi.billingapp.fragments.DownloadFragment;
 import com.prakruthi.billingapp.fragments.ItemMasterFragment;
+import com.prakruthi.billingapp.fragments.ProductCardViewFragment;
 import com.prakruthi.billingapp.fragments.SettingsFragment;
 import com.prakruthi.billingapp.fragments.SummaryFragment;
 import com.ngx.BluetoothPrinter;
@@ -33,7 +34,9 @@ public class MainActivity extends AppCompatActivity implements
         BillingFragment.OnFragmentInteractionListener,
         SettingsFragment.OnFragmentInteractionListener,
         SummaryFragment.OnFragmentInteractionListener,
-        ItemMasterFragment.OnFragmentInteractionListener
+        ItemMasterFragment.OnFragmentInteractionListener,
+        ProductCardViewFragment.OnFragmentInteractionListener
+
 {
 
     private TextView mTextMessage;
@@ -97,7 +100,9 @@ public class MainActivity extends AppCompatActivity implements
                 fragment.setArguments(data);//Finally set argument bundle to fragment
                 break;
             case R.id.navigation_dashboard:
-                fragment = new SummaryFragment();
+
+                fragment = new ProductCardViewFragment();
+               // fragment = new SummaryFragment();
                 fragment.setArguments(data);//Finally set argument bundle to fragment
                 break;
             case R.id.navigation_download:

@@ -12,6 +12,8 @@ public class DatabaseConstants {
 
     public static final String DATABASE_NAME="prakruthi.db";
 
+    public static final String TABLE_NAME_LOGIN_MASTER = "LOGIN_MASTER";
+
     public static final String TABLE_ITEM_MASTER_DETAILS="ITEM_MASTER_DETAILS";
 
     public static final String TABLE_NAME_BILLING_MASTER = "BILLING_MASTER";

@@ -22,9 +22,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.prakruthi.billingapp.asynchronous.IRemoteCall;
+import com.prakruthi.billingapp.asynchronous.RemoteCallImpl;
+import com.prakruthi.billingapp.database.DatabaseImplementation;
+import com.prakruthi.billingapp.database.DatabaseUtil;
 import com.prakruthi.billingapp.jobscheduler.JobSchedulerUpload;
 import com.prakruthi.billingapp.listeners.LocationFinder;
+import com.prakruthi.billingapp.network.ConnectionDetector;
 import com.prakruthi.billingapp.utility.GlobalClass;
+
+import org.json.JSONObject;
 
 public class SignInActivity extends AppCompatActivity {
 
@@ -53,12 +60,28 @@ public class SignInActivity extends AppCompatActivity {
 
     TelephonyManager telephonyManager;
 
+    ConnectionDetector connectionDetector;
+
+    JSONObject jsonObject;
+    IRemoteCall remoteObj;
+    //UserSessionManagement session ;
+    DatabaseUtil databaseUtil;
+    DatabaseImplementation databaseImplementation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
 
+        jsonObject = new JSONObject();
+        remoteObj = new RemoteCallImpl();
+        databaseImplementation = DatabaseImplementation.getInstance(getApplicationContext());
+        connectionDetector = new ConnectionDetector(getApplicationContext());
+        databaseUtil = new DatabaseUtil();
+        telephonyManager = (TelephonyManager) getApplicationContext().getSystemService(Context.TELEPHONY_SERVICE);
         globalVariable = (GlobalClass) getApplicationContext();
+
+        databaseImplementation.CreateDatabaseTables();
 
         username = (EditText) findViewById(R.id.text_username);
         password = (EditText) findViewById(R.id.text_password);

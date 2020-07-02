@@ -226,8 +226,18 @@ public class TableScripts {
             "    PRIMARY KEY(IM_LOC_CD,IM_RR_NO)" +
             " ) ";
 
+    public static String CREATE_LOGIN_MASTER =  " CREATE TABLE  IF NOT EXISTS" +
+            " "+DatabaseConstants.TABLE_NAME_LOGIN_MASTER +
+            " (" +
+            " id INTEGER ," +
+            " USER_ID TEXT ," +
+            " USER_PASSWORD TEXT," +
+            " IMEI_NO TEXT," +
+            " LOGOUT_STATUS TEXT," +
+            " PRIMARY KEY(id,USER_ID ,IMEI_NO ))"   ;
+
     public static String CREATE_ITEM_MASTER_TABLE =
-            "CREATE TABLE  "+DatabaseConstants.TABLE_ITEM_MASTER_DETAILS+" ("+
+            "CREATE TABLE  IF NOT EXISTS "+DatabaseConstants.TABLE_ITEM_MASTER_DETAILS+" ("+
                     "KEY_INDEX         INTEGER," +
                     "DESCRIPTION_ENGLISH         TEXT," +
                     "DESCRIPTION_OTHER    TEXT"

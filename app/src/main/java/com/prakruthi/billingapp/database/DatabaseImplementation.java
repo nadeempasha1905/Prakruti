@@ -96,6 +96,9 @@ public class DatabaseImplementation extends SQLiteOpenHelper{
 
             db = this.getWritableDatabase();
 
+            db.execSQL(TableScripts.CREATE_LOGIN_MASTER);
+            Log.d("["+DatabaseConstants.TABLE_NAME_LOGIN_MASTER+"]-->","Created...");
+
             db.execSQL(TableScripts.CREATE_ITEM_MASTER_TABLE);
             Log.d("["+DatabaseConstants.TABLE_ITEM_MASTER_DETAILS+"]-->","Created...");
 
@@ -132,6 +135,9 @@ public class DatabaseImplementation extends SQLiteOpenHelper{
         db = this.getWritableDatabase();
 
         try {
+
+            db.execSQL("DROP TABLE IF EXISTS "+DatabaseConstants.TABLE_NAME_LOGIN_MASTER);
+            Log.d("["+DatabaseConstants.TABLE_NAME_LOGIN_MASTER+"]-->"," Dropped...");
 
             db.execSQL("DROP TABLE IF EXISTS "+DatabaseConstants.TABLE_ITEM_MASTER_DETAILS);
             Log.d("["+DatabaseConstants.TABLE_ITEM_MASTER_DETAILS+"]-->"," Dropped...");

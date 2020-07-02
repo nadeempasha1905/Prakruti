@@ -3,6 +3,7 @@ package com.prakruthi.billingapp.fragments;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
  * Use the {@link ProductCardViewFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProductCardViewFragment extends Fragment {
+public class ProductCardViewFragment extends Fragment implements AddEditProductDialog.IAddEditProduct{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -117,6 +118,9 @@ public class ProductCardViewFragment extends Fragment {
                         //handle menu1 click
                         Toast.makeText(getContext(), "You selected the action : " + item.getTitle()+" position "+position, Toast.LENGTH_SHORT).show();
                         popup.dismiss();
+
+                        openAddEditDialog();
+
                         break;
                     case R.id.productmenu_delete:
                         //handle menu2 click
@@ -130,6 +134,15 @@ public class ProductCardViewFragment extends Fragment {
         popup.show();
     }
 
+    private void openAddEditDialog() {
+
+        FragmentManager fm = getFragmentManager();
+        AddEditProductDialog dialogFragment = new AddEditProductDialog();
+        //dialogFragment.setArguments(bundle);
+        dialogFragment.show(fm, "Add/Edit Fragment");
+
+    }
+
     private ArrayList<DataObject> getDataSet() {
         ArrayList results = new ArrayList<DataObject>();
         for (int index = 0; index < 20; index++) {
@@ -137,6 +150,11 @@ public class ProductCardViewFragment extends Fragment {
             results.add(index, obj);
         }
         return results;
+    }
+
+    @Override
+    public void OnFinishDialogListener() {
+
     }
 
    /* @Override

@@ -2,30 +2,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.prakruthi.billingapp.fragments.ProductCardViewFragment">
+    tools:context="com.prakruthi.billingapp.fragments.ProductCardViewFragment"
+    android:background="@drawable/bg">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        >
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Product List"
             android:textSize="30dp"
             android:textStyle="bold"
+            android:layout_weight="1"
             >
-
         </TextView>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add Item"
+            android:background="@drawable/my_reject_button"
+            />
+
+
+    </LinearLayout>
+
+
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/my_product_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="70dp"
             />
 
 

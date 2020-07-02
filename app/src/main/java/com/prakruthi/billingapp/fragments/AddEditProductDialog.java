@@ -16,6 +16,8 @@ public class AddEditProductDialog extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
+       // getDialog().setTitle("Product Description");
+
         View view = inflater.inflate(R.layout.add_edit_product, container, false);
 
         return view;

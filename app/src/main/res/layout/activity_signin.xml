@@ -59,7 +59,7 @@ tools:context="com.prakruthi.billingapp.spotbilling.SignInActivity">
                 android:hint="User Name"
                 android:inputType="text"
                 android:singleLine="true"
-                android:text="test" />
+                android:text="admin" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -77,7 +77,7 @@ tools:context="com.prakruthi.billingapp.spotbilling.SignInActivity">
                 android:hint="Password"
                 android:inputType="text"
                 android:singleLine="true"
-                android:text="test" />
+                android:text="admin" />
         </android.support.design.widget.TextInputLayout>
 
 

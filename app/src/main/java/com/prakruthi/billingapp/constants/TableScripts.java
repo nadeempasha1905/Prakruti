@@ -233,7 +233,12 @@ public class TableScripts {
             " USER_ID TEXT ," +
             " USER_PASSWORD TEXT," +
             " IMEI_NO TEXT," +
+            " USER_ROLE TEXT," +
             " LOGOUT_STATUS TEXT," +
+            " CREATED_BY   TEXT, " +
+            " CREATED_ON   TEXT, " +
+            " UPDATED_BY   TEXT, " +
+            " UPDATED_ON   TEXT, " +
             " PRIMARY KEY(id,USER_ID ,IMEI_NO ))"   ;
 
     public static String CREATE_ITEM_MASTER_TABLE =

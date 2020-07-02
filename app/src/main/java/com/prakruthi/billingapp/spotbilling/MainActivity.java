@@ -101,16 +101,17 @@ public class MainActivity extends AppCompatActivity implements
                 break;
             case R.id.navigation_dashboard:
 
-                fragment = new ProductCardViewFragment();
-               // fragment = new SummaryFragment();
+               // fragment = new ProductCardViewFragment();
+                fragment = new SummaryFragment();
                 fragment.setArguments(data);//Finally set argument bundle to fragment
                 break;
-            case R.id.navigation_download:
+           /* case R.id.navigation_download:
                 fragment = new DownloadFragment();
                 fragment.setArguments(data);//Finally set argument bundle to fragment
-                break;
+                break;*/
             case R.id.navigation_additem:
-                fragment = new ItemMasterFragment();
+              //  fragment = new ItemMasterFragment();
+                fragment = new ProductCardViewFragment();
                 fragment.setArguments(data);//Finally set argument bundle to fragment
                 break;
            /* case R.id.navigation_bluetooth:

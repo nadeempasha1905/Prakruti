@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -19,6 +20,7 @@ import com.prakruthi.billingapp.bean.TariffSlabBO;
 import com.prakruthi.billingapp.constants.Constants;
 import com.prakruthi.billingapp.constants.DatabaseConstants;
 import com.prakruthi.billingapp.constants.TableScripts;
+import com.prakruthi.billingapp.utility.EncriptAndDecript;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -1079,5 +1081,66 @@ public class DatabaseImplementation extends SQLiteOpenHelper{
         return list;
 
 
+    }
+
+    public void CheckandInsertAdminRecord(ContentValues contentValues) {
+
+        int count = 0;
+        db = getWritableDatabase();
+        try{
+            Cursor Upload = db.rawQuery("SELECT count(*) FROM   " +
+                    ""+DatabaseConstants.TABLE_NAME_LOGIN_MASTER+
+                    " WHERE USER_ID = 'admin' ;  ", null);
+            while (Upload.moveToNext()) {
+                count = Upload.getInt(0);
+                if(count > 0){
+                    Log.d("["+this.getClass().getSimpleName()+"]-->","Admin record already inserted: ");
+                }else{
+                    long result = 0;
+                    try{
+                        result = db.insertOrThrow(DatabaseConstants.TABLE_NAME_LOGIN_MASTER,null,contentValues);
+                    }catch(SQLiteConstraintException e){
+                        result = -10;
+                        Log.d("["+this.getClass().getSimpleName()+"]-->","ERROR : "+e.toString());
+                    }
+                    if(result > 0){
+                        Log.d("["+this.getClass().getSimpleName()+"]-->","Admim user details inserted succesfully.");
+                    }
+                }
+            }
+
+            if(Upload != null){
+                Upload.close();
+            }
+
+            db.close();
+
+        }catch (Exception e) {
+            // TODO: handle exception
+            Log.d("["+this.getClass().getSimpleName()+"]-->","Error Ocured in  getUploadRecordCount: "+e.toString());
+        }
+    }
+
+    public int ValidateUsernameandPassword(String musername, String mpassword) {
+
+        int ret = 0;
+        db = getWritableDatabase();
+        try{
+            Cursor Upload = db.rawQuery("SELECT count(*) FROM   " +
+                    ""+DatabaseConstants.TABLE_NAME_LOGIN_MASTER+
+                    " WHERE USER_ID = '"+musername+"' AND USER_PASSWORD = '"+ EncriptAndDecript.encrypt(mpassword) +"' ;  ", null);
+            while (Upload.moveToNext()) {
+                ret = Upload.getInt(0);
+                Log.d("["+this.getClass().getSimpleName()+"]-->","password : "+EncriptAndDecript.encrypt(mpassword)+"------"+ret);
+            }
+            if(Upload != null){
+                Upload.close();
+            }
+            db.close();
+        }catch (Exception e) {
+            // TODO: handle exception
+            Log.d("["+this.getClass().getSimpleName()+"]-->","Error Ocured in  ValidateUsernameandPassword: "+e.toString());
+        }
+        return ret;
     }
 }

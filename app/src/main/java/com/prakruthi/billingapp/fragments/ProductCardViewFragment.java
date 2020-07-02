@@ -2,6 +2,7 @@ package com.prakruthi.billingapp.fragments;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
@@ -43,6 +44,8 @@ public class ProductCardViewFragment extends Fragment implements AddEditProductD
     private RecyclerView.LayoutManager mLayoutManager;
     private static String LOG_TAG = "CardViewActivity";
 
+    private FloatingActionButton floatbtn_addproduct;
+
     public ProductCardViewFragment() {
         // Required empty public constructor
     }
@@ -81,6 +84,14 @@ public class ProductCardViewFragment extends Fragment implements AddEditProductD
 
         View view = inflater.inflate(R.layout.fragment_product_card_view, container, false);
 
+        floatbtn_addproduct = (FloatingActionButton) view.findViewById(R.id.floatbtn_addproduct);
+
+        floatbtn_addproduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAddEditDialog();
+            }
+        });
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.my_product_recyclerview);
         mRecyclerView.setHasFixedSize(true);

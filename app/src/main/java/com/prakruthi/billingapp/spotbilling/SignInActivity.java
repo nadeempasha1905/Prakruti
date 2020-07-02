@@ -4,11 +4,13 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.StrictMode;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
@@ -29,6 +31,8 @@ import com.prakruthi.billingapp.database.DatabaseUtil;
 import com.prakruthi.billingapp.jobscheduler.JobSchedulerUpload;
 import com.prakruthi.billingapp.listeners.LocationFinder;
 import com.prakruthi.billingapp.network.ConnectionDetector;
+import com.prakruthi.billingapp.utility.EncriptAndDecript;
+import com.prakruthi.billingapp.utility.GenericClass;
 import com.prakruthi.billingapp.utility.GlobalClass;
 
 import org.json.JSONObject;
@@ -73,6 +77,17 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+
         jsonObject = new JSONObject();
         remoteObj = new RemoteCallImpl();
         databaseImplementation = DatabaseImplementation.getInstance(getApplicationContext());
@@ -82,6 +97,31 @@ public class SignInActivity extends AppCompatActivity {
         globalVariable = (GlobalClass) getApplicationContext();
 
         databaseImplementation.CreateDatabaseTables();
+
+        ContentValues contentValues = new ContentValues();
+
+        try {
+            contentValues.put("USER_ID", "admin");
+            contentValues.put("USER_PASSWORD", EncriptAndDecript.encrypt("admin"));
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                contentValues.put("IMEI_NO", telephonyManager.getImei());
+            }else{
+                contentValues.put("IMEI_NO","");
+            }
+            contentValues.put("USER_ROLE", "admin");
+            contentValues.put("LOGOUT_STATUS", "N");
+            contentValues.put("CREATED_BY", "admin");
+            contentValues.put("CREATED_ON", GenericClass.getDateTime());
+            contentValues.put("UPDATED_BY", "");
+            contentValues.put("UPDATED_ON", "");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        databaseImplementation.CheckandInsertAdminRecord(contentValues);
 
         username = (EditText) findViewById(R.id.text_username);
         password = (EditText) findViewById(R.id.text_password);
@@ -133,8 +173,27 @@ public class SignInActivity extends AppCompatActivity {
                     return;
                 }
 
+                String _musername = username.getText().toString();
+                String _mpassword = password.getText().toString();
 
-                if(username.getText().toString().equals("test") && password.getText().toString().equals("test")){
+
+                if((databaseImplementation.ValidateUsernameandPassword(_musername,_mpassword)) > 0){
+                    //Set name and email in global/application context
+                    globalVariable.setUsername(username.getText().toString().trim());
+                    globalVariable.setPassword(password.getText().toString().trim());
+
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    // Add new Flag to start new Activity
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(i);
+                    finish();
+                }else{
+                    Toast.makeText(getApplicationContext(),"Invalid Username or Password !!!",Toast.LENGTH_SHORT).show();
+                }
+
+
+               /* if(username.getText().toString().equals("test") && password.getText().toString().equals("test")){
                     //Set name and email in global/application context
                     globalVariable.setUsername(username.getText().toString().trim());
                     globalVariable.setPassword(password.getText().toString().trim());
@@ -151,7 +210,7 @@ public class SignInActivity extends AppCompatActivity {
                     finish();
                 }else{
                     Toast.makeText(getApplicationContext(),"Invalid Username or Password !!!",Toast.LENGTH_SHORT).show();
-                }
+                }*/
 
 
             }

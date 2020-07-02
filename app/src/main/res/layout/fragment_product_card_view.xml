@@ -1,9 +1,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.prakruthi.billingapp.fragments.ProductCardViewFragment"
-    android:background="@drawable/bg">
+    android:background="#e6e4e4">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -17,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2"
+        android:weightSum="1"
         >
 
         <TextView
@@ -27,30 +28,45 @@
             android:textSize="30dp"
             android:textStyle="bold"
             android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/British_Racing_Green"
             >
         </TextView>
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Add Item"
-            android:background="@drawable/my_reject_button"
-            />
 
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:orientation="vertical"
+        android:stateListAnimator="@null"
+        android:layout_marginBottom="70dp"
+        >
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatbtn_addproduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:background="@android:color/transparent"
+            app:backgroundTint="@color/Pastel_Red"
+            android:src="@drawable/ic_baseline_add_24"
+            app:rippleColor="@color/White" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/my_product_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="70dp"
             />
+
+    </RelativeLayout>
 
 
     </LinearLayout>
+
 </FrameLayout>

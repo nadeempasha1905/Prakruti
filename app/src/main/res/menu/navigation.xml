@@ -9,17 +9,17 @@
     <item
         android:id="@+id/navigation_billing"
         android:icon="@drawable/ic_print_black_24dp"
-        android:title="Billing" />
+        android:title="Invoice" />
 
-    <item
+   <!-- <item
         android:id="@+id/navigation_download"
         android:icon="@drawable/ic_file_download_black_24dp"
-        android:title="Download" />
+        android:title="Download" />-->
 
     <item
         android:id="@+id/navigation_additem"
         android:icon="@drawable/ic_baseline_library_add_24"
-        android:title="Add Item" />
+        android:title="Products" />
 
 
 

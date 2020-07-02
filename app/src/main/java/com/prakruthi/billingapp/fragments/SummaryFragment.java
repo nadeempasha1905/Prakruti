@@ -93,6 +93,7 @@ public class SummaryFragment extends Fragment {
         databaseUtil           = new DatabaseUtil();
 
 
+/*
         TextView textView_downloaded = (TextView) view.findViewById(R.id.summary_downloaded);
         TextView textView_uploaded   = (TextView) view.findViewById(R.id.summary_uploaded);
         TextView textView_billed     = (TextView) view.findViewById(R.id.summary_billed);
@@ -110,6 +111,7 @@ public class SummaryFragment extends Fragment {
         textView_uploaded.setText(""+uploadCount);
         textView_billed.setText(""+billedCount);
         textView_notbilled.setText(""+notBilledCount);
+*/
 
       /*  btnTestPrint = (Button) view.findViewById(R.id.testprint);
         btnTestPrint.setOnClickListener(new View.OnClickListener() {

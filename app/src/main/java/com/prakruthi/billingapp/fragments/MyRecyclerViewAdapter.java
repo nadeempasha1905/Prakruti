@@ -16,11 +16,12 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     private static String LOG_TAG = "MyRecyclerViewAdapter";
     private ArrayList<DataObject> mDataset;
-    private static MyClickListener myClickListener;
+  /*  private static MyClickListener myClickListener;*/
 
-    public void setOnItemClickListener(MyClickListener myClickListener) {
+  /*  public void setOnItemClickListener(MyClickListener myClickListener) {
         this.myClickListener = myClickListener;
-    }
+    }*/
+
     public MyRecyclerViewAdapter(ArrayList<DataObject> myDataset) {
         mDataset = myDataset;
     }
@@ -56,13 +57,13 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         return mDataset.size();
     }
 
-    public interface MyClickListener {
+   /* public interface MyClickListener {
         public void onItemClick(int position, View v);
 
         ;
-    }
+    }*/
 
-    public class DataObjectHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class DataObjectHolder extends RecyclerView.ViewHolder  {
 
         TextView productname;
         TextView productprice;
@@ -75,13 +76,13 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             productprice = (TextView) itemView.findViewById(R.id.product_price);
             productdiscountprice = (TextView) itemView.findViewById(R.id.product_discount_price);
             Log.i(LOG_TAG, "Adding Listener");
-            itemView.setOnClickListener(this);
+           // itemView.setOnClickListener(this);
         }
 
-        @Override
+      /*  @Override
         public void onClick(View v) {
             myClickListener.onItemClick(getAdapterPosition(), v);
-        }
+        }*/
     }
 
 

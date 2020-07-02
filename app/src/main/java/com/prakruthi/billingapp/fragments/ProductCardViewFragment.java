@@ -1,14 +1,19 @@
 package com.prakruthi.billingapp.fragments;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.prakruthi.billingapp.spotbilling.R;
 
@@ -83,8 +88,46 @@ public class ProductCardViewFragment extends Fragment {
         mAdapter = new MyRecyclerViewAdapter(getDataSet());
         mRecyclerView.setAdapter(mAdapter);
 
+        mRecyclerView.addOnItemTouchListener(new RecyclerViewTouchListenerForEdit(getActivity(), mRecyclerView, new ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+                Toast.makeText(getActivity(), "Single Click on position :"+position ,
+                        Toast.LENGTH_SHORT).show();
+
+                openOptionMenu(view,position);
+            }
+        }));
 
         return view;
+    }
+
+    private void openOptionMenu(View view, final int position) {
+        final PopupMenu popup = new PopupMenu(view.getContext(), view);
+        popup.inflate(R.menu.productmenu_recyclerview);
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.productmenu_edit:
+                        //handle menu1 click
+                        Toast.makeText(getContext(), "You selected the action : " + item.getTitle()+" position "+position, Toast.LENGTH_SHORT).show();
+                        popup.dismiss();
+                        break;
+                    case R.id.productmenu_delete:
+                        //handle menu2 click
+                        Toast.makeText(getContext(), "You selected the action : " + item.getTitle()+" position "+position, Toast.LENGTH_SHORT).show();
+                        popup.dismiss();
+                        break;
+                }
+                return false;
+            }
+        });
+        popup.show();
     }
 
     private ArrayList<DataObject> getDataSet() {
@@ -96,7 +139,7 @@ public class ProductCardViewFragment extends Fragment {
         return results;
     }
 
-    @Override
+   /* @Override
     public void onPause() {
         super.onPause();
         ((MyRecyclerViewAdapter) mAdapter).setOnItemClickListener(new MyRecyclerViewAdapter.MyClickListener() {
@@ -116,7 +159,7 @@ public class ProductCardViewFragment extends Fragment {
                 Log.i(LOG_TAG, " Clicked on Item " + position);
             }
         });
-    }
+    }*/
 
     public interface OnFragmentInteractionListener {
     }

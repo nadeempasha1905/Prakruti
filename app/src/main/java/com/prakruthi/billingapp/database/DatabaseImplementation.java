@@ -20,8 +20,10 @@ import com.prakruthi.billingapp.bean.TariffSlabBO;
 import com.prakruthi.billingapp.constants.Constants;
 import com.prakruthi.billingapp.constants.DatabaseConstants;
 import com.prakruthi.billingapp.constants.TableScripts;
+import com.prakruthi.billingapp.fragments.ItemDataObject;
 import com.prakruthi.billingapp.utility.EncriptAndDecript;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -33,6 +35,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by Nadeem on 8/6/2017.
@@ -1143,4 +1146,64 @@ public class DatabaseImplementation extends SQLiteOpenHelper{
         }
         return ret;
     }
+    public long AddProductDetailsToTable(ContentValues contentValues) {
+
+        int count = 0;
+        long result = 0;
+        db = getWritableDatabase();
+        try{
+
+                    try{
+                        result = db.insertOrThrow(DatabaseConstants.TABLE_ITEM_MASTER_DETAILS,null,contentValues);
+                    }catch(SQLiteConstraintException e){
+                        result = -10;
+                        Log.d("["+this.getClass().getSimpleName()+"]-->","ERROR : "+e.toString());
+                    }
+                    if(result > 0){
+                        Log.d("["+this.getClass().getSimpleName()+"]-->","Product details inserted succesfully.");
+                    }
+
+
+            db.close();
+
+        }catch (Exception e) {
+            // TODO: handle exception
+            Log.d("["+this.getClass().getSimpleName()+"]-->","Error Ocured in  getUploadRecordCount: "+e.toString());
+        }
+
+        return result;
+    }
+    public List<ItemDataObject> GetProducDetailsFromTable() {
+
+        int ret = 0;
+        List<ItemDataObject> productdetails=new ArrayList<>();
+        db = getWritableDatabase();
+        try{
+            Cursor data = db.rawQuery("SELECT * FROM   " +
+                    ""+DatabaseConstants.TABLE_ITEM_MASTER_DETAILS+
+                    " WHERE PRODUCT_DELETE_STATUS = 'N' ;  ", null);
+
+            while (data.moveToNext()) {
+                ItemDataObject product = new ItemDataObject();
+                product.setmProductNameEnglish(data.getString(data.getColumnIndex("PRODUCT_NAME_ENGLISH")));
+                product.setmProductNameKannada(data.getString(data.getColumnIndex("PRODUCT_NAME_KANNADA")));
+                product.setmProductMeasuringUnit(data.getString(data.getColumnIndex("PRODUCT_MEASURING_UNIT")));
+                product.setmProductPrice(data.getString(data.getColumnIndex("PRODUCT_PRICE")));
+                product.setmProductDiscountType(data.getString(data.getColumnIndex("PRODUCT_DISCOUNT_TYPE")));
+                product.setmProductDiscountPrice(data.getString(data.getColumnIndex("PRODUCT_DISCOUNT_RATE")));
+
+                productdetails.add(product);
+
+            }
+            if(data != null){
+                data.close();
+            }
+            db.close();
+        }catch (Exception e) {
+            // TODO: handle exception
+            Log.d("["+this.getClass().getSimpleName()+"]-->","Error Ocured in  ValidateUsernameandPassword: "+e.toString());
+        }
+        return productdetails;
+    }
+
 }

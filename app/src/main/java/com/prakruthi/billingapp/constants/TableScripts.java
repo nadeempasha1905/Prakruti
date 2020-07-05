@@ -252,6 +252,7 @@ public class TableScripts {
                     " PRODUCT_PRICE TEXT," +
                     " PRODUCT_DISCOUNT_TYPE TEXT," +
                     " PRODUCT_DISCOUNT_RATE TEXT," +
+                    " PRODUCT_DELETE_STATUS TEXT," +
                     " CREATED_BY   TEXT, " +
                     " CREATED_ON   TEXT, " +
                     " UPDATED_BY   TEXT, " +

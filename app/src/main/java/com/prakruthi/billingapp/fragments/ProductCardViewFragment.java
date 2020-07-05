@@ -1,16 +1,17 @@
 package com.prakruthi.billingapp.fragments;
 
+import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -18,11 +19,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.prakruthi.billingapp.database.DatabaseImplementation;
 import com.prakruthi.billingapp.spotbilling.R;
+import com.prakruthi.billingapp.utility.GenericClass;
+import com.prakruthi.billingapp.utility.GlobalClass;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -51,6 +56,10 @@ public class ProductCardViewFragment extends Fragment implements AddEditProductD
     private FloatingActionButton floatbtn_addproduct;
 
     List<ItemDataObject> results = new ArrayList<>();
+
+    GlobalClass globalClass;
+    DatabaseImplementation databaseImplementation;
+
 
     public ProductCardViewFragment() {
         // Required empty public constructor
@@ -90,6 +99,14 @@ public class ProductCardViewFragment extends Fragment implements AddEditProductD
 
         View view = inflater.inflate(R.layout.fragment_product_card_view, container, false);
 
+        results.clear();
+
+        globalClass=new GlobalClass();
+        databaseImplementation=DatabaseImplementation.getInstance(getActivity());
+
+        results =  databaseImplementation.GetProducDetailsFromTable();
+
+
         floatbtn_addproduct = (FloatingActionButton) view.findViewById(R.id.floatbtn_addproduct);
 
         floatbtn_addproduct.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +116,7 @@ public class ProductCardViewFragment extends Fragment implements AddEditProductD
             }
         });
 
-        results.clear();
+
 
         mAdapter = new MyRecyclerViewAdapter(results);
 
@@ -180,19 +197,69 @@ public class ProductCardViewFragment extends Fragment implements AddEditProductD
 
                 ContentValues contentValues_productdetails = new ContentValues();
 
-                contentValues_productdetails.put("DESCRIPTION_ENGLISH",output.getmProductNameEnglish());
+                contentValues_productdetails.put("PRODUCT_NAME_ENGLISH",output.getmProductNameEnglish());
+                contentValues_productdetails.put("PRODUCT_NAME_KANNADA",output.getmProductNameKannada());
+                contentValues_productdetails.put("PRODUCT_MEASURING_UNIT",output.getmProductMeasuringUnit());
+                contentValues_productdetails.put("PRODUCT_PRICE",output.getmProductPrice());
+                contentValues_productdetails.put("PRODUCT_DISCOUNT_TYPE",output.getmProductDiscountType());
+                contentValues_productdetails.put("PRODUCT_DISCOUNT_RATE",output.getmProductDiscountPrice());
+                contentValues_productdetails.put("PRODUCT_DELETE_STATUS","N");
+                contentValues_productdetails.put("CREATED_BY",globalClass.getUsername() );
+                contentValues_productdetails.put("CREATED_ON", GenericClass.getDateTime());
+                contentValues_productdetails.put("UPDATED_BY", "");
+                contentValues_productdetails.put("UPDATED_ON", "");
+
+                long res=databaseImplementation.AddProductDetailsToTable(contentValues_productdetails);
+                if (res > 0) {
+                   ShowAlert("success","Product added successfully","Product");
+                    results.add(itemDataObject);
+                    mAdapter.notifyDataSetChanged();
+                    mRecyclerView.setFocusable(true);
+                }else {
+                    if(res==0){
+                        ShowAlert("fail","Poduct not added ","Product");
+                    }
+                    else if(res==-10){
+                        ShowAlert("fail","Error occured ","Product");
+                    }
+                }
 
 
 
-
-                results.add(itemDataObject);
-
-                mAdapter.notifyDataSetChanged();
-                mRecyclerView.setFocusable(true);
 
             }
         });
 
+    }
+    private void ShowAlert(String status, final String message, String title) {
+
+        android.app.AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+
+
+        // Setting Dialog Message
+        alertDialog.setMessage(message);
+
+        if (status.equals("success")) {
+            // Setting Icon to Dialog
+            alertDialog.setIcon(R.drawable.succes);
+
+            // Setting Dialog Title
+            alertDialog.setTitle(title);
+
+        } else {
+            // Setting Icon to Dialog
+            alertDialog.setIcon(R.drawable.fail);
+            alertDialog.setTitle(Html.fromHtml("<font color='#FF0800'>"+title+"</font>"));
+        }
+
+        // Setting Positive "Yes" Button
+        alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        // Showing Alert Message
+        alertDialog.show();
     }
 
     private ArrayList<DataObject> getDataSet() {

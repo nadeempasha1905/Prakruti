@@ -1,5 +1,7 @@
 package com.prakruthi.billingapp.constants;
 
+import com.prakruthi.billingapp.utility.GenericClass;
+
 /**
  * Created by Nadeem on 8/5/2017.
  */

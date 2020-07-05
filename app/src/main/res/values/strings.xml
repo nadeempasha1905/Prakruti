@@ -23,4 +23,20 @@
     <string name="action_connect_device">Connect Device</string>
     <string name="action_unpair_device">Unpair Device</string>
     <string name="account_login">Account Login</string>
+
+    <string-array name="measuring_units_list">
+        <item>Kilogram</item>
+        <item>Litre</item>
+        <item>Number</item>
+    </string-array>
+
+    <string name="measuring_units_list_label">Measuring Unit</string>
+
+    <string-array name="discount_type_list">
+        <item>Percentage</item>
+        <item>Price</item>
+    </string-array>
+
+    <string name="discount_type_list_label">Discount Type</string>
+
 </resources>

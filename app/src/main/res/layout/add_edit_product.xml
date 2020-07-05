@@ -45,6 +45,7 @@
                     android:textColor="@color/colorPrimaryDarkGreen"/>
 
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textinputlayout_productnameenglish"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -61,6 +62,7 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textinputlayout_productnamekannada"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -77,10 +79,35 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textinputlayout_measuringunit"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    >
 
-                    <EditText
+                    <!--<fr.ganfra.materialspinner.MaterialSpinner
+                        android:id="@+id/add_edit_measuringunit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:ms_arrowColor="#0000FF"
+                        app:ms_arrowSize="16dp"
+                        app:ms_floatingLabelColor="#00FF00"
+                        app:ms_floatingLabelText="floating label"
+                        app:ms_hint="hint"
+                        app:ms_multiline="true" />-->
+
+                   <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Measuring Unit"
+                        style="@style/TextView.InputLabel"
+                        />
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/add_edit_measuringunit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:spinnerMode="dialog"
+                        style="@style/Widget.AppCompat.Spinner.Underlined" />jp[-
+                    <!--<EditText
                         android:id="@+id/add_edit_measure_unit"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -88,10 +115,11 @@
                         android:inputType="text"
                         android:paddingBottom="40dp"
                         android:singleLine="true"
-                        android:text="" />
-                </android.support.design.widget.TextInputLayout>
+                        android:text="" />-->
+               </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textinputlayout_rateperquantity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -100,17 +128,31 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="Rate per Quantity"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:paddingBottom="40dp"
                         android:singleLine="true"
                         android:text="" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textinputlayout_discounttype"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <EditText
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Discount Type"
+                        style="@style/TextView.InputLabel"
+                        />
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/add_edit_discount_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:spinnerMode="dialog"
+                        style="@style/Widget.AppCompat.Spinner.Underlined" />
+
+                   <!-- <EditText
                         android:id="@+id/add_edit_discount_type"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -118,19 +160,20 @@
                         android:inputType="text"
                         android:paddingBottom="40dp"
                         android:singleLine="true"
-                        android:text="" />
+                        android:text="" />-->
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textinputlayout_discountrate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/add_edit_Discount_rate"
+                        android:id="@+id/add_edit_discount_rate"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="Discount rate"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:paddingBottom="40dp"
                         android:singleLine="true"
                         android:text="" />
@@ -143,14 +186,14 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button3"
+                        android:id="@+id/btn_add_edit_saverecord"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Save" />
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/btn_add_edit_cancel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

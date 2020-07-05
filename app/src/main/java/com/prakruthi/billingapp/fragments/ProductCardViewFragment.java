@@ -1,5 +1,6 @@
 package com.prakruthi.billingapp.fragments;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -19,7 +20,10 @@ import android.widget.Toast;
 
 import com.prakruthi.billingapp.spotbilling.R;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -45,6 +49,8 @@ public class ProductCardViewFragment extends Fragment implements AddEditProductD
     private static String LOG_TAG = "CardViewActivity";
 
     private FloatingActionButton floatbtn_addproduct;
+
+    List<ItemDataObject> results = new ArrayList<>();
 
     public ProductCardViewFragment() {
         // Required empty public constructor
@@ -93,11 +99,15 @@ public class ProductCardViewFragment extends Fragment implements AddEditProductD
             }
         });
 
+        results.clear();
+
+        mAdapter = new MyRecyclerViewAdapter(results);
+
         mRecyclerView = (RecyclerView) view.findViewById(R.id.my_product_recyclerview);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new MyRecyclerViewAdapter(getDataSet());
+        /*mAdapter = new MyRecyclerViewAdapter(getDataSet());*/
         mRecyclerView.setAdapter(mAdapter);
 
         mRecyclerView.addOnItemTouchListener(new RecyclerViewTouchListenerForEdit(getActivity(), mRecyclerView, new ClickListener() {
@@ -152,9 +162,41 @@ public class ProductCardViewFragment extends Fragment implements AddEditProductD
         //dialogFragment.setArguments(bundle);
         dialogFragment.show(fm, "Add/Edit Fragment");
 
+        dialogFragment.setIProductAddEditDialogListener(new AddEditProductDialog.IProductAddEditDialogListener() {
+            @Override
+            public void onSavingProductDetailsDialog(ItemDataObject output) {
+
+                //Insert/Update the details into item_master here
+                Log.d("Product output : ",""+output);
+
+                ItemDataObject itemDataObject = new ItemDataObject(
+                        output.getmProductNameEnglish(),
+                        output.getmProductNameKannada(),
+                        output.getmProductMeasuringUnit(),
+                        output.getmProductDiscountType(),
+                        output.getmProductPrice(),
+                        output.getmProductDiscountPrice()
+                        );
+
+                ContentValues contentValues_productdetails = new ContentValues();
+
+                contentValues_productdetails.put("DESCRIPTION_ENGLISH",output.getmProductNameEnglish());
+
+
+
+
+                results.add(itemDataObject);
+
+                mAdapter.notifyDataSetChanged();
+                mRecyclerView.setFocusable(true);
+
+            }
+        });
+
     }
 
     private ArrayList<DataObject> getDataSet() {
+
         ArrayList results = new ArrayList<DataObject>();
         for (int index = 0; index < 20; index++) {
             DataObject obj = new DataObject("Item-" + (index+1),"100","25");

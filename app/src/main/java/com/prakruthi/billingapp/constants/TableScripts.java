@@ -245,9 +245,17 @@ public class TableScripts {
 
     public static String CREATE_ITEM_MASTER_TABLE =
             "CREATE TABLE  IF NOT EXISTS "+DatabaseConstants.TABLE_ITEM_MASTER_DETAILS+" ("+
-                    "KEY_INDEX         INTEGER," +
-                    "DESCRIPTION_ENGLISH         TEXT," +
-                    "DESCRIPTION_OTHER    TEXT"
+                    " ID INTEGER PRIMARY KEY," +
+                    " PRODUCT_NAME_ENGLISH TEXT," +
+                    " PRODUCT_NAME_KANNADA TEXT," +
+                    " PRODUCT_MEASURING_UNIT TEXT," +
+                    " PRODUCT_PRICE TEXT," +
+                    " PRODUCT_DISCOUNT_TYPE TEXT," +
+                    " PRODUCT_DISCOUNT_RATE TEXT," +
+                    " CREATED_BY   TEXT, " +
+                    " CREATED_ON   TEXT, " +
+                    " UPDATED_BY   TEXT, " +
+                    " UPDATED_ON   TEXT "
                     + ")";
 
 }

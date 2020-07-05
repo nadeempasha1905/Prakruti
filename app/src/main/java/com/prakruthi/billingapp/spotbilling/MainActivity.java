@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.prakruthi.billingapp.fragments.BillingFragment;
 import com.prakruthi.billingapp.fragments.DownloadFragment;
+import com.prakruthi.billingapp.fragments.InvoiceGenerateFragment;
 import com.prakruthi.billingapp.fragments.ItemMasterFragment;
 import com.prakruthi.billingapp.fragments.ProductCardViewFragment;
 import com.prakruthi.billingapp.fragments.SettingsFragment;
@@ -35,7 +36,9 @@ public class MainActivity extends AppCompatActivity implements
         SettingsFragment.OnFragmentInteractionListener,
         SummaryFragment.OnFragmentInteractionListener,
         ItemMasterFragment.OnFragmentInteractionListener,
-        ProductCardViewFragment.OnFragmentInteractionListener
+        ProductCardViewFragment.OnFragmentInteractionListener,
+        InvoiceGenerateFragment.OnFragmentInteractionListener
+
 
 {
 
@@ -96,7 +99,8 @@ public class MainActivity extends AppCompatActivity implements
         //initializing the fragment object which is selected
         switch (ItemID) {
             case R.id.navigation_billing:
-                fragment = new BillingFragment();
+                fragment = new InvoiceGenerateFragment();
+                //fragment = new BillingFragment();
                 fragment.setArguments(data);//Finally set argument bundle to fragment
                 break;
             case R.id.navigation_dashboard:

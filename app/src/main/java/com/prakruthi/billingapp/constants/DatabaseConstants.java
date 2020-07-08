@@ -16,6 +16,14 @@ public class DatabaseConstants {
 
     public static final String TABLE_ITEM_MASTER_DETAILS="ITEM_MASTER_DETAILS";
 
+    public static final String TABLE_INVOICE_MASTER_DETAILS="INVOICE_MASTER_DETAILS";
+
+    public static final String TABLE_TRANSACTION_MIAN_MASTER="TRANSACTION_MAIN_MASTER";
+
+    public static final String TABLE_TRANSACTION_ITEM_DETAILS="TRANSACTION_ITEM_DETAILS";
+
+    public static final String TABLE_COMPANY_DETAILS="COMPANY_DETAILS";
+
     public static final String TABLE_NAME_BILLING_MASTER = "BILLING_MASTER";
 
     public static final String TABLE_NAME_IMAGE_MASTER = "IMAGE_MASTER";

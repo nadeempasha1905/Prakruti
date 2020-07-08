@@ -50,7 +50,13 @@ public class RecyclerViewTouchListenerForEdit implements RecyclerView.OnItemTouc
 
             @Override
             public boolean onSingleTapUp(MotionEvent e) {
-                return super.onSingleTapUp(e);
+                //return super.onSingleTapUp(e);
+                View child=recycleView.findChildViewUnder(e.getX(),e.getY());
+                if(child!=null && clicklistener!=null) {
+                    clicklistener.onClick(child, recycleView.getChildAdapterPosition(child));
+                }
+
+                return true;
 
             }
         });

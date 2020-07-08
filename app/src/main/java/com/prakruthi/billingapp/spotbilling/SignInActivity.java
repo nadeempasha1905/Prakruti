@@ -96,6 +96,7 @@ public class SignInActivity extends AppCompatActivity {
         telephonyManager = (TelephonyManager) getApplicationContext().getSystemService(Context.TELEPHONY_SERVICE);
         globalVariable = (GlobalClass) getApplicationContext();
 
+        //databaseImplementation.DropDatabaseTables();
         databaseImplementation.CreateDatabaseTables();
 
         ContentValues contentValues = new ContentValues();

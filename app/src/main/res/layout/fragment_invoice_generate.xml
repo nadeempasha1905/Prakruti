@@ -1,13 +1,467 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.prakruthi.billingapp.fragments.InvoiceGenerateFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
-</android.support.v4.widget.NestedScrollView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <LinearLayout
+        android:id="@+id/main_linearlayout_invoicegenerate"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Invoice Generation"
+                android:textAlignment="center"
+                android:textColor="@color/British_Racing_Green"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/prakruthi_success"
+                android:layout_margin="2dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                >
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Invoice Date "
+                        android:textAlignment="textEnd"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        />
+
+                    <EditText
+                        android:id="@+id/INVOICEDATE_invoicegenerate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/prakruthi_rounded_edittext"
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:layout_marginRight="@dimen/default_padding_top"
+                        android:enabled="false"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/Dark_Candy_Apple_Red"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Invoice Number"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/black"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        />
+
+                    <EditText
+                        android:id="@+id/INVOICENUMBER_invoicegenerate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/prakruthi_rounded_edittext"
+                        android:inputType="numberDecimal"
+                        android:padding="5dp"
+                        android:layout_marginRight="@dimen/default_padding_top"
+                        android:enabled="false"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:layout_weight="1"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/Dark_Candy_Apple_Red"
+                        />
+
+                </LinearLayout>
+
+
+
+                <!--<TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12345"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/Dark_Candy_Apple_Red"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>-->
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/prakruthi_rounded_edittext"
+            android:layout_marginTop="10dp"
+
+            >
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/searchablespinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                app:hintText="Search product here"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+
+            >
+
+
+            <!--<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:text="Product Name : "></TextView>
+
+                <TextView
+                    android:id="@+id/productname_invoicegenerate"
+                    android:textColor="@color/Alizarin"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:text="Product Price : "></TextView>
+
+                <TextView
+                    android:id="@+id/productprice_invoicegenerate"
+                    android:textColor="@color/Alizarin"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:text="Measuring Unit : "></TextView>
+
+                <TextView
+                    android:id="@+id/productmeasureunit_invoicegenerate"
+                    android:textColor="@color/Alizarin"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:text="Discount Type : "></TextView>
+
+                <TextView
+                    android:id="@+id/productdiscounttype_invoicegenerate"
+                    android:textColor="@color/Alizarin"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:text="Discount Rate : "></TextView>
+
+                <TextView
+                    android:id="@+id/productdiscountrate_invoicegenerate"
+                    android:textColor="@color/Alizarin"
+                    android:textSize="16dp"
+                    android:textStyle="italic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+
+            </LinearLayout>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:paddingLeft="@dimen/default_padding_top"
+                    android:paddingRight="@dimen/default_padding_top"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Price"
+                        android:textSize="18dp"
+                        android:textColor="@color/black"
+                        />
+                    <EditText
+                        android:id="@+id/productprice_invoicegenerate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/prakruthi_rounded_edittext"
+                        android:inputType="numberDecimal"
+                        android:padding="10dp"
+                        android:enabled="false"
+                        android:textSize="18dp"
+                        android:textColor="@color/black"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:paddingLeft="@dimen/default_padding_top"
+                    android:paddingRight="@dimen/default_padding_top"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Quantity"
+                        android:textSize="18dp"
+                        android:textColor="@color/black"
+                        />
+                        />
+                    <EditText
+                        android:id="@+id/productquantity_invoicegenerate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:background="@drawable/prakruthi_rounded_edittext"
+                        android:inputType="numberDecimal"
+                        android:padding="10dp"
+                        android:textSize="18dp"
+                        />
+                </LinearLayout>
+
+
+
+                <!--<android.support.design.widget.TextInputLayout
+                    android:id="@+id/textinputlayout_invoicegen_quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/add_edit_product_name_kannada"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Quantity"
+                        android:inputType="numberDecimal"
+                        android:singleLine="true"
+                        android:text="" />
+                </android.support.design.widget.TextInputLayout>-->
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/btn_addtoinvoice_invoicegenerate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/prakruthi_success_button"
+                android:textAllCaps="false"
+                android:textSize="20dp"
+                android:text="Add to invoice"
+                android:textColor="@color/White"
+                android:layout_marginLeft="@dimen/default_padding_top"
+                android:layout_marginRight="@dimen/default_padding_top"
+                ></Button>
+
+            <Button
+                android:id="@+id/btn_clearselected_invoicegenerate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/my_clear_button"
+                android:text="Clear Selected"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:textSize="20dp"
+                android:layout_marginLeft="@dimen/default_padding_top"
+                android:layout_marginRight="@dimen/default_padding_top"></Button>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Added products to the invoice ->"
+                android:textColor="@color/British_Racing_Green"
+                android:textSize="20dp"
+                android:textStyle="bold"
+
+                ></TextView>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_invoicegenerate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="50dp"
+            android:weightSum="2"
+            android:layout_marginBottom="100dp"
+            >
+
+            <Button
+                android:id="@+id/btn_generateinvoice_invoicegenerate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/prakruthi_success_button"
+                android:textSize="20dp"
+                android:textAllCaps="false"
+                android:text="Generate Invoice"
+                android:textColor="@color/White"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/default_padding_top"
+                android:layout_marginRight="@dimen/default_padding_top"
+               />
+
+            <Button
+                android:id="@+id/btn_cancelinvoice_invoicegenerate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/prakruthi_reject_button"
+                android:text="Cancel Invoice"
+                android:textColor="@color/White"
+                android:textSize="20dp"
+                android:textAllCaps="false"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/default_padding_top"
+                android:layout_marginRight="@dimen/default_padding_top"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

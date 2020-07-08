@@ -9,4 +9,6 @@
     <color name="spinner_base_color">#44000000</color>
     <color name="spinner_hint_text_color">#ffffcc</color>
 
+    <color name="prakruthi_success">#32cd32</color>
+
 </resources>

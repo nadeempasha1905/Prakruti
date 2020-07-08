@@ -228,6 +228,21 @@ public class TableScripts {
             "    PRIMARY KEY(IM_LOC_CD,IM_RR_NO)" +
             " ) ";
 
+    public static String CREATE_TABLE_COMPANY_DETAILS =
+            "CREATE TABLE  IF NOT EXISTS "+DatabaseConstants.TABLE_COMPANY_DETAILS+" ("+
+                    " ID INTEGER PRIMARY KEY," +
+                    " COMPANY_NAME_ENGLISH TEXT," +
+                    " COMPANY_NAME_KANNADA TEXT," +
+                    " COMPANY_ADDRESS TEXT," +
+                    " COMPANY_PHONE TEXT," +
+                    " COMPANY_EMAIL_ID TEXT," +
+                    " CREATED_BY   TEXT, " +
+                    " CREATED_ON   TEXT, " +
+                    " UPDATED_BY   TEXT, " +
+                    " UPDATED_ON   TEXT "
+                    + ")";
+
+
     public static String CREATE_LOGIN_MASTER =  " CREATE TABLE  IF NOT EXISTS" +
             " "+DatabaseConstants.TABLE_NAME_LOGIN_MASTER +
             " (" +
@@ -258,5 +273,48 @@ public class TableScripts {
                     " UPDATED_BY   TEXT, " +
                     " UPDATED_ON   TEXT "
                     + ")";
+
+    public static String CREATE_TABLE_INVOICE_MASTER =
+            "CREATE TABLE  IF NOT EXISTS "+DatabaseConstants.TABLE_INVOICE_MASTER_DETAILS+" ("+
+                    " ID INTEGER PRIMARY KEY," +
+                    " INVOICE_NUMBER INTEGER," +
+                    " INVOICE_DATE TEXT," +
+                    " CREATED_BY   TEXT, " +
+                    " CREATED_ON   TEXT, " +
+                    " UPDATED_BY   TEXT, " +
+                    " UPDATED_ON   TEXT "
+                    + ")";
+
+    public static String CREATE_TABLE_TRANSACTION_MASTER =
+            "CREATE TABLE  IF NOT EXISTS "+DatabaseConstants.TABLE_TRANSACTION_MIAN_MASTER+" ("+
+                    " ID INTEGER PRIMARY KEY," +
+                    " INVOICE_NUMBER TEXT," +
+                    " INVOICE_DATE TEXT," +
+                    " TOTAL_ITEMS INTEGER," +
+                    " GROSS_AMOUNT REAL," +
+                    " TOTAL_DISCOUNT REAL," +
+                    " NET_AMOUNT REAL," +
+                    " CREATED_BY   TEXT, " +
+                    " CREATED_ON   TEXT, " +
+                    " UPDATED_BY   TEXT, " +
+                    " UPDATED_ON   TEXT "
+                    + ")";
+
+    public static String CREATE_TABLE_TRANSACTION_ITEM_DETAILS =
+            "CREATE TABLE  IF NOT EXISTS "+DatabaseConstants.TABLE_TRANSACTION_ITEM_DETAILS+" ("+
+                    " ID INTEGER PRIMARY KEY," +
+                    " ITEM_ID INTEGER," +
+                    " ITEM_PRICE REAL," +
+                    " QUANTITY REAL," +
+                    " GROSS_AMOUNT REAL," +
+                    " DISCOUNT REAL," +
+                    " NET_AMOUNT REAL," +
+                    " CREATED_BY   TEXT, " +
+                    " CREATED_ON   TEXT, " +
+                    " UPDATED_BY   TEXT, " +
+                    " UPDATED_ON   TEXT "
+                    + ")";
+
+
 
 }

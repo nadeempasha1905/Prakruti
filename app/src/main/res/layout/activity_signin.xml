@@ -86,7 +86,7 @@ tools:context="com.prakruthi.billingapp.spotbilling.SignInActivity">
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_margin="22dp"
-            android:background="#32cd32"
+            android:background="@drawable/prakruthi_success_button"
             android:text="Sign in"
             android:textAllCaps="false"
             android:textColor="#fff"
@@ -94,23 +94,25 @@ tools:context="com.prakruthi.billingapp.spotbilling.SignInActivity">
     </LinearLayout>
 </RelativeLayout>
 
-<ImageView
-    android:id="@+id/imageView5"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:srcCompat="@drawable/logoo"
-    tools:ignore="MissingConstraints" />
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logoo"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="45dp" />
 
-<!--    <ImageButton
-    android:id="@+id/user_profile_photo"
-    android:layout_width="100dp"
-    android:layout_height="100dp"
-    android:layout_below="@+id/login_title"
-    android:layout_centerHorizontal="true"
-    android:background="@drawable/ic_account_circle_black_24dp"
-    android:elevation="4dp"
-    android:src="@drawable/profile_user"
-    tools:layout_editor_absoluteY="31dp"
-    tools:layout_editor_absoluteX="142dp" />-->
+    <!--    <ImageButton
+        android:id="@+id/user_profile_photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/login_title"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/ic_account_circle_black_24dp"
+        android:elevation="4dp"
+        android:src="@drawable/profile_user"
+        tools:layout_editor_absoluteY="31dp"
+        tools:layout_editor_absoluteX="142dp" />-->
 
 </android.support.constraint.ConstraintLayout>

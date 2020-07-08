@@ -101,11 +101,23 @@ public class DatabaseImplementation extends SQLiteOpenHelper{
 
             db = this.getWritableDatabase();
 
+            db.execSQL(TableScripts.CREATE_TABLE_COMPANY_DETAILS);
+            Log.d("["+DatabaseConstants.TABLE_COMPANY_DETAILS+"]-->","Created...");
+
             db.execSQL(TableScripts.CREATE_LOGIN_MASTER);
             Log.d("["+DatabaseConstants.TABLE_NAME_LOGIN_MASTER+"]-->","Created...");
 
             db.execSQL(TableScripts.CREATE_ITEM_MASTER_TABLE);
             Log.d("["+DatabaseConstants.TABLE_ITEM_MASTER_DETAILS+"]-->","Created...");
+
+            db.execSQL(TableScripts.CREATE_TABLE_INVOICE_MASTER);
+            Log.d("["+DatabaseConstants.TABLE_INVOICE_MASTER_DETAILS+"]-->","Created...");
+
+            db.execSQL(TableScripts.CREATE_TABLE_TRANSACTION_MASTER);
+            Log.d("["+DatabaseConstants.TABLE_TRANSACTION_MIAN_MASTER+"]-->","Created...");
+
+            db.execSQL(TableScripts.CREATE_TABLE_TRANSACTION_ITEM_DETAILS);
+            Log.d("["+DatabaseConstants.TABLE_TRANSACTION_ITEM_DETAILS+"]-->","Created...");
 
          /*   db.execSQL(TableScripts.CREATE_TARIFF_MAIN_TABLE);
             Log.d("["+DatabaseConstants.TABLE_NAME_TARIFF_MAIN+"]-->","Created...");
@@ -1204,6 +1216,84 @@ public class DatabaseImplementation extends SQLiteOpenHelper{
             Log.d("["+this.getClass().getSimpleName()+"]-->","Error Ocured in  ValidateUsernameandPassword: "+e.toString());
         }
         return productdetails;
+    }
+
+    public JSONArray getProductListForSpinner(){
+        db = this.getWritableDatabase();
+        String sql_query = "";
+        JSONArray jsonArray = new JSONArray();
+
+
+        sql_query = "SELECT ID,PRODUCT_NAME_ENGLISH,PRODUCT_NAME_KANNADA FROM  "+DatabaseConstants.TABLE_ITEM_MASTER_DETAILS+ "" +
+                " WHERE PRODUCT_DELETE_STATUS = 'N'  ;  ";
+
+        Cursor Upload = db.rawQuery(sql_query, null);
+        JSONObject jsonObject ;
+
+        while (Upload.moveToNext()) {
+            jsonObject = new JSONObject();
+            try {
+                jsonObject.put("key",Upload.getString(Upload.getColumnIndex("ID")));
+                jsonObject.put("value",Upload.getString(Upload.getColumnIndex("PRODUCT_NAME_ENGLISH"))+"("+Upload.getString(Upload.getColumnIndex("PRODUCT_NAME_KANNADA"))+")");
+                jsonArray.put(jsonObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        if(Upload != null){
+            Upload.close();
+        }
+        return jsonArray;
+    }
+
+    public ItemDataObject getProductDetailById(Integer id){
+        db = this.getWritableDatabase();
+        String sql_query = "";
+        ItemDataObject product = new ItemDataObject();
+
+        sql_query = "SELECT * FROM  "+DatabaseConstants.TABLE_ITEM_MASTER_DETAILS+ "" +
+                " WHERE PRODUCT_DELETE_STATUS = 'N' AND ID = "+id+" ;  ";
+
+        Cursor data = db.rawQuery(sql_query, null);
+        while (data.moveToNext()) {
+            product.setmId(Integer.parseInt(data.getString(data.getColumnIndex("ID"))));
+            product.setmProductNameEnglish(data.getString(data.getColumnIndex("PRODUCT_NAME_ENGLISH")));
+            product.setmProductNameKannada(data.getString(data.getColumnIndex("PRODUCT_NAME_KANNADA")));
+            product.setmProductMeasuringUnit(data.getString(data.getColumnIndex("PRODUCT_MEASURING_UNIT")));
+            product.setmProductPrice(data.getString(data.getColumnIndex("PRODUCT_PRICE")));
+            product.setmProductDiscountType(data.getString(data.getColumnIndex("PRODUCT_DISCOUNT_TYPE")));
+            product.setmProductDiscountPrice(data.getString(data.getColumnIndex("PRODUCT_DISCOUNT_RATE")));
+            product.setmProductDeletedStatus(data.getString(data.getColumnIndex("PRODUCT_DELETE_STATUS")));
+            product.setmCreatedBy(data.getString(data.getColumnIndex("CREATED_BY")));
+            product.setmCreatedOn(data.getString(data.getColumnIndex("CREATED_ON")));
+            product.setmUpdatedBy(data.getString(data.getColumnIndex("UPDATED_BY")));
+            product.setmUpdatedOn(data.getString(data.getColumnIndex("UPDATED_ON")));
+        }
+        if(data != null){
+            data.close();
+        }
+        return product;
+    }
+
+    public Integer getMaxInvoiceNumber(){
+
+        db = this.getWritableDatabase();
+        Integer ret = 0000;
+        try{
+            Cursor data = db.rawQuery(" SELECT  cast(substr('0000' || cast(ifnull(max(cast(INVOICE_NUMBER as INTEGER)),0)+1 as TEXT),-4,4) as TEXT)  INVOICE_NUMBER  " +
+                    " FROM  "+DatabaseConstants.TABLE_INVOICE_MASTER_DETAILS+ " " +
+                    "  ;  ", null);
+            if (data.moveToNext()) {
+                ret = Integer.parseInt(data.getString(data.getColumnIndex("INVOICE_NUMBER")));
+            }
+            if(data != null){
+                data.close();
+            }
+        }catch (Exception e) {
+            // TODO: handle exception
+            Log.d("["+this.getClass().getSimpleName()+"]-->","Error Ocured in getMaxInvoiceNumber: "+e.toString());
+        }
+        return ret;
     }
 
 }

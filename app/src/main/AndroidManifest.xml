@@ -64,9 +64,11 @@
         android:roundIcon="@drawable/bill3"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".UserDetailsActivity"></activity>
+        <activity android:name=".CompanyDetailsActivity" />
         <activity
-            android:name="com.prakruthi.billingapp.spotbilling.MainActivity"
-            android:label="@string/title_activity_main"></activity>
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" />
         <!--
             <activity
             android:name=".HomeActivity"
@@ -79,7 +81,7 @@
             </intent-filter>
         </activity>
         -->
-        <activity android:name="com.prakruthi.billingapp.spotbilling.SignInActivity">
+        <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -87,7 +89,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.prakruthi.billingapp.spotbilling.HomeActivity"
+            android:name=".HomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
@@ -100,7 +102,7 @@
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <activity
-            android:name="com.prakruthi.billingapp.spotbilling.ResultActivity"
+            android:name=".ResultActivity"
             android:hardwareAccelerated="false" />
     </application>
 

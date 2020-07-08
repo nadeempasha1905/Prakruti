@@ -1185,6 +1185,64 @@ public class DatabaseImplementation extends SQLiteOpenHelper{
 
         return result;
     }
+
+    public long updateCompanyDetailsToTable(ContentValues contentValues) {
+
+        int count = 0;
+        long result = 0;
+        db = getWritableDatabase();
+        try{
+
+            try{
+                result = db.insertOrThrow(DatabaseConstants.TABLE_COMPANY_DETAILS,null,contentValues);
+            }catch(SQLiteConstraintException e){
+                result = -10;
+                Log.d("["+this.getClass().getSimpleName()+"]-->","ERROR : "+e.toString());
+            }
+            if(result > 0){
+                Log.d("["+this.getClass().getSimpleName()+"]-->","Company details updated succesfully.");
+            }
+
+
+            db.close();
+
+        }catch (Exception e) {
+            // TODO: handle exception
+            Log.d("["+this.getClass().getSimpleName()+"]-->","Error Ocured in  getUploadRecordCount: "+e.toString());
+        }
+
+        return result;
+    }
+
+
+    public long updateUserDetailsToTable(ContentValues contentValues) {
+
+        int count = 0;
+        long result = 0;
+        db = getWritableDatabase();
+        try{
+
+            try{
+                result = db.insertOrThrow(DatabaseConstants.TABLE_NAME_LOGIN_MASTER,null,contentValues);
+            }catch(SQLiteConstraintException e){
+                result = -10;
+                Log.d("["+this.getClass().getSimpleName()+"]-->","ERROR : "+e.toString());
+            }
+            if(result > 0){
+                Log.d("["+this.getClass().getSimpleName()+"]-->","User detail updated successfully.");
+            }
+
+
+            db.close();
+
+        }catch (Exception e) {
+            // TODO: handle exception
+            Log.d("["+this.getClass().getSimpleName()+"]-->","Error Ocured in  getUploadRecordCount: "+e.toString());
+        }
+
+        return result;
+    }
+
     public List<ItemDataObject> GetProducDetailsFromTable() {
 
         int ret = 0;
